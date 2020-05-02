@@ -57,7 +57,7 @@ for year in 2018 2019; do
     ./dm.sh ${date} ${proc_root}/${date} ${mosaic_root}
 
     # SICE
-    python ./sice.py ${mosaic_root}/${date}
+    # python ./sice.py ${mosaic_root}/${date}
     
   done
 done
