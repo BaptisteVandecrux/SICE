@@ -23,6 +23,10 @@ mosaic_root=/sice-data/SICE/mosaic
 # proc_root=./out
 # mosaic_root=./mosaic
 
+set -o errexit
+set -o nounset
+set -o pipefail
+
 LD_LIBRARY_PATH=. # SNAP requirement
 
 for year in 2018 2019; do
@@ -51,7 +55,7 @@ for year in 2018 2019; do
     ./S3_proc.sh -i ${SEN3_source}/${year}/${date} -o ${proc_root}/${date} -X S3.xml -t
     
     # Run the Simple Cloud Detection Algorithm (SCDA)
-    python ./SCDA.py ${proc_root}/${date}
+    # python ./SCDA.py ${proc_root}/${date}
     
     # Mosaic
     ./dm.sh ${date} ${proc_root}/${date} ${mosaic_root}
